@@ -23,7 +23,9 @@ function Player() {
     } else if (keyIsDown(RIGHT_ARROW)) {
       dir.mult(this.speedScale)
       this.applyForce(dir);
-    } else if (keyIsDown(32) && !this.jumped) {
+    }
+
+    if (keyIsDown(32) && !this.jumped) {
       console.log("jumped")
       this.jumped = true
     }
