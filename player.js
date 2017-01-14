@@ -8,9 +8,11 @@ function Player() {
   this.jumpHeight = createVector(0, -200)
   this.gravity = (0, 1)
 
+
   this.applyForce = function(force) {
     this.acceleration.add(force)
   }
+
 
   this.move = function() {
     var dir = createVector(1, 0)
@@ -26,6 +28,7 @@ function Player() {
       this.jumped = true
     }
   }
+
 
   this.update = function() {
     this.move()
@@ -51,6 +54,7 @@ function Player() {
       this.location.y = height - 180
     }
   }
+
 
   this.render = function() {
     noStroke()
