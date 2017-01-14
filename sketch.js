@@ -8,6 +8,11 @@ function setup() {
 
 function draw() {
   redrawBackground()
+  noStroke()
+  fill(0)
+  text("FPS: " + Math.round(frameRate()),20,20)
+
+  player.update()
   player.render()
 }
 
