@@ -1,9 +1,14 @@
+var player
+
 function setup() {
   createCanvas(windowWidth,windowHeight)
+
+  player = new Player()
 }
 
 function draw() {
   redrawBackground()
+  player.render()
 }
 
 function redrawBackground() {
