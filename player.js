@@ -26,7 +26,6 @@ function Player() {
     }
 
     if (keyIsDown(32) && !this.jumped) {
-      console.log("jumped")
       this.jumped = true
     }
   }
@@ -42,6 +41,7 @@ function Player() {
 
     this.velocity.add(this.acceleration)
     this.location.add(this.velocity)
+    this.location.x = constrain(this.location.x, 0, width - 60)
 
     this.acceleration.mult(0)
     this.velocity.mult(0)
