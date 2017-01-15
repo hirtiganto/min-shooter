@@ -1,9 +1,14 @@
 var player
+var opponents = []
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
 
   player = new Player()
+
+  for (var i = 0; i < 3; i++) {
+    opponents.push(new Opponent())
+  }
 }
 
 function draw() {
@@ -14,6 +19,11 @@ function draw() {
 
   player.update()
   player.render()
+
+  for (var i = 0; i < opponents.length; i++) {
+    opponents[i].update(player)
+    opponents[i].render()
+  }
 }
 
 function redrawBackground() {
