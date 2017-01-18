@@ -11,6 +11,7 @@ function setup() {
   }
 }
 
+
 function draw() {
   redrawBackground()
   noStroke()
@@ -25,6 +26,7 @@ function draw() {
     opponents[i].render()
   }
 }
+
 
 function redrawBackground() {
   background(66, 244, 209)
