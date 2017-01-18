@@ -1,5 +1,6 @@
 function Opponent() {
   this.location = createVector(0, height - 180)
+  this.col = color(random (150, 200),random(10, 25),random(10, 25))
 
   // i want the opponent to spawn beyond the screen
   if (Math.round(random(0, 1)) > 0) {
@@ -39,7 +40,7 @@ function Opponent() {
 
   this.render = function() {
     noStroke()
-    fill(188, 16, 19, 200)
+    fill(this.col)
     rect(this.location.x, this.location.y, 60, 120)
   }
 }
