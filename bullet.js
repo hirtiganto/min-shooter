@@ -22,22 +22,22 @@ function Bullet(player) {
     noStroke()
 
     fill(this.col.red)
-    rect(this.location.x, this.location.y + (this.w * 0), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 0), this.w, this.h)
 
     fill(this.col.orange)
-    rect(this.location.x, this.location.y + (this.w * 1), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 1), this.w, this.h)
 
     fill(this.col.yellow)
-    rect(this.location.x, this.location.y + (this.w * 2), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 2), this.w, this.h)
 
     fill(this.col.green)
-    rect(this.location.x, this.location.y + (this.w * 3), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 3), this.w, this.h)
 
     fill(this.col.blue)
-    rect(this.location.x, this.location.y + (this.w * 4), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 4), this.w, this.h)
 
     fill(this.col.violet)
-    rect(this.location.x, this.location.y + (this.w * 5), this.w, this.h)
+    rect(this.location.x, this.location.y + (this.h * 5), this.w, this.h)
   }
 
 
