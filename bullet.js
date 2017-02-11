@@ -1,5 +1,5 @@
 function Bullet(player) {
-  this.location = createVector(player.x, height - 100)
+  this.location = createVector(player.x, player.y + 50)
   this.direction = createVector(1, 0)
   this.speedScale = 20
   this.deletable = false
