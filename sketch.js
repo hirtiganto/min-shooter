@@ -19,6 +19,7 @@ function draw() {
   text("FPS: " + Math.round(frameRate()),20,20)
 
   player.update()
+  player.updateBullets()
   player.render()
 
   for (var i = 0; i < opponents.length; i++) {

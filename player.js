@@ -8,6 +8,9 @@ function Player() {
   this.jumpHeight = createVector(0, -200)
   this.gravity = (0, 1)
 
+  this.facingRight = true
+  this.bullets = []
+
 
   this.applyForce = function(force) {
     this.acceleration.add(force)
@@ -17,16 +20,27 @@ function Player() {
   this.move = function() {
     var dir = createVector(1, 0)
 
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(65)) {
       dir.mult(-this.speedScale)
-      this.applyForce(dir);
-    } else if (keyIsDown(RIGHT_ARROW)) {
+      this.applyForce(dir)
+      this.facingRight = false
+    } else if (keyIsDown(68)) {
       dir.mult(this.speedScale)
-      this.applyForce(dir);
+      this.applyForce(dir)
+      this.facingRight = true
     }
 
-    if (keyIsDown(32) && !this.jumped) {
+    if ((keyIsDown(32) || keyIsDown(87)) && !this.jumped) {
       this.jumped = true
+    }
+
+    //shooting is in the move methon because why the hell not
+    if (keyIsDown(LEFT_ARROW)) {
+      this.bullets.push(new Bullet(this.location))
+      this.bullets[this.bullets.length - 1].fire(false)
+    } else if (keyIsDown(RIGHT_ARROW)) {
+      this.bullets.push(new Bullet(this.location))
+      this.bullets[this.bullets.length - 1].fire(true)
     }
   }
 
@@ -54,6 +68,19 @@ function Player() {
       this.gravity = createVector(0, 1)
       this.jumped = false
       this.location.y = height - 180
+    }
+  }
+
+
+  this.updateBullets = function () {
+    for (var i = 0; i < this.bullets.length; i++) {
+      this.bullets[i].update()
+      this.bullets[i].render()
+
+      if (this.bullets[i].deletable) {
+        this.bullets.splice(i, 1)
+        break
+      }
     }
   }
 
