@@ -10,6 +10,8 @@ function Player() {
 
   this.facingRight = true
   this.bullets = []
+  this.timeFired = 0
+  this.delay = 250
 
 
   this.applyForce = function(force) {
@@ -35,12 +37,14 @@ function Player() {
     }
 
     //shooting is in the move methon because why the hell not
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(LEFT_ARROW) && (millis() - this.timeFired) > this.delay) {
       this.bullets.push(new Bullet(this.location))
       this.bullets[this.bullets.length - 1].fire(false)
-    } else if (keyIsDown(RIGHT_ARROW)) {
+      this.timeFired = millis()
+    } else if (keyIsDown(RIGHT_ARROW) && (millis() - this.timeFired) > this.delay) {
       this.bullets.push(new Bullet(this.location))
       this.bullets[this.bullets.length - 1].fire(true)
+      this.timeFired = millis()
     }
   }
 
