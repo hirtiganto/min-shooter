@@ -1,14 +1,12 @@
 function Bullet(player) {
-  this.location = createVector(player.location.x, height - 100)
+  this.location = createVector(player.x, height - 100)
   this.direction = createVector(1, 0)
   this.speedScale = 20
+  this.deletable = false
 
   this.w = 40
   this.h = 5
 
-  if (!player.facingRight) {
-    this.direction.mult(-1)
-  }
 
   this.col = {
     red: color(226, 29, 29),
@@ -40,5 +38,22 @@ function Bullet(player) {
 
     fill(this.col.violet)
     rect(this.location.x, this.location.y + (this.w * 5), this.w, this.h)
+  }
+
+
+  this.update = function(){
+    this.location.add(this.direction)
+
+    if (this.location.x > width || this.location.x < 0) {
+      this.deletable = true
+    }
+  }
+
+
+  this.fire = function (dirRight) {
+    this.direction.mult(this.speedScale)
+    if (!dirRight) {
+      this.direction.mult(-1)
+    }
   }
 }
