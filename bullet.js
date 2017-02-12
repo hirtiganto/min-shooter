@@ -47,6 +47,14 @@ function Bullet(player) {
     if (this.location.x > width || this.location.x < 0) {
       this.deletable = true
     }
+
+    for (var i = 0; i < opponents.length; i++) {
+      if (checkCollision(this.location, this.w, this.h, opponents[i].location, opponents[i].w, opponents[i].h)) {
+        opponents[i].deletable = true
+        this.deletable = true
+        break
+      }
+    }
   }
 
 
