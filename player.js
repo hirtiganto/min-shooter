@@ -4,6 +4,9 @@ function Player() {
   this.velocity = createVector(0, 0)
   this.speedScale = 10
 
+  this.w = 60
+  this.h = 120
+
   this.jumped = false
   this.jumpHeight = createVector(0, -200)
   this.gravity = (0, 1)
@@ -92,6 +95,6 @@ function Player() {
   this.render = function() {
     noStroke()
     fill(237, 237, 40)
-    rect(this.location.x, this.location.y, 60, 120)
+    rect(this.location.x, this.location.y, this.w, this.h)
   }
 }
