@@ -36,3 +36,12 @@ function redrawBackground() {
   fill(135, 93, 119)
   rect(0, height - 60, width, 60)
 }
+
+
+function checkCollision(location, w, h, collider, colW, colH) {
+  if ((location.x <= collider.x + colW) && (location.x + w >= collider.x)) {
+    if (location.y + h >= collider.y) {
+      return true
+    }
+  }
+}
