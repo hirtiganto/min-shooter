@@ -25,6 +25,10 @@ function draw() {
   for (var i = 0; i < opponents.length; i++) {
     opponents[i].update(player)
     opponents[i].render()
+    if (opponents[i].deletable) {
+      opponents.splice(i, 1)
+      break
+    }
   }
 }
 
