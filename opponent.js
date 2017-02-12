@@ -5,6 +5,8 @@ function Opponent() {
   this.w = 60
   this.h = 120
 
+  this.deletable = false
+
   // i want the opponent to spawn beyond the screen
   if (Math.round(random(0, 1)) > 0) {
     this.location.x = -120
