@@ -76,6 +76,12 @@ function Player() {
       this.jumped = false
       this.location.y = height - 180
     }
+
+    for (var i = 0; i < opponents.length; i++) {
+      if (checkCollision(this.location, this.w, this.h, opponents[i].location, opponents[i].w, opponents[i].h)) {
+        console.log("game over");
+      }
+    }
   }
 
 
