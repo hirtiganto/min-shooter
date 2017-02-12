@@ -5,10 +5,6 @@ function setup() {
   createCanvas(windowWidth,windowHeight)
 
   player = new Player()
-
-  for (var i = 0; i < 3; i++) {
-    opponents.push(new Opponent())
-  }
 }
 
 
@@ -22,9 +18,14 @@ function draw() {
   player.updateBullets()
   player.render()
 
+  while (opponents.length < 3) {
+    opponents.push(new Opponent())
+  }
+
   for (var i = 0; i < opponents.length; i++) {
     opponents[i].update(player)
     opponents[i].render()
+
     if (opponents[i].deletable) {
       opponents.splice(i, 1)
       break
