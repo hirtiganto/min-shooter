@@ -50,7 +50,7 @@ function Bullet(player) {
 
     for (var i = 0; i < opponents.length; i++) {
       if (checkCollision(this.location, this.w, this.h, opponents[i].location, opponents[i].w, opponents[i].h)) {
-        opponents[i].deletable = true
+        opponents[i].hit()
         this.deletable = true
         continue
       }

@@ -5,6 +5,7 @@ function Opponent() {
   this.w = 60
   this.h = 120
 
+  this.hp = 2
   this.deletable = false
 
   // i want the opponent to spawn beyond the screen
@@ -40,6 +41,14 @@ function Opponent() {
 
     this.acceleration.mult(0)
     this.velocity.mult(0)
+  }
+
+
+  this.hit = function () {
+    this.hp -= 1
+    if (this.hp < 1) {
+      this.deletable = true
+    }
   }
 
 
