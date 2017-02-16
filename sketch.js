@@ -1,24 +1,34 @@
 var player
 var opponents = []
+var maxEnemyCount
+var score
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
 
   player = new Player()
+  maxEnemyCount = 5
+  score = 0
 }
 
 
 function draw() {
   redrawBackground()
   noStroke()
+  
   fill(0)
-  text("FPS: " + Math.round(frameRate()),20,20)
+  textSize(12)
+  text("FPS: " + floor(frameRate()),20,20)
+
+  fill(255)
+  textSize(32)
+  text("Score: " + score, width / 2, 40)
 
   player.update()
   player.updateBullets()
   player.render()
 
-  while (opponents.length < 3) {
+  while (opponents.length < maxEnemyCount) {
     opponents.push(new Opponent())
   }
 
@@ -28,7 +38,7 @@ function draw() {
 
     if (opponents[i].deletable) {
       opponents.splice(i, 1)
-      break
+      continue
     }
   }
 }
