@@ -52,7 +52,7 @@ function Bullet(player) {
       if (checkCollision(this.location, this.w, this.h, opponents[i].location, opponents[i].w, opponents[i].h)) {
         opponents[i].deletable = true
         this.deletable = true
-        break
+        continue
       }
     }
   }
