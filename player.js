@@ -39,7 +39,7 @@ function Player() {
       this.jumped = true
     }
 
-    //shooting is in the move methon because why the hell not
+    //shooting is in the move method because why the hell not
     if (keyIsDown(LEFT_ARROW) && (millis() - this.timeFired) > this.delay) {
       this.bullets.push(new Bullet(this.location))
       this.bullets[this.bullets.length - 1].fire(false)
@@ -79,7 +79,7 @@ function Player() {
 
     for (var i = 0; i < opponents.length; i++) {
       if (checkCollision(this.location, this.w, this.h, opponents[i].location, opponents[i].w, opponents[i].h)) {
-        console.log("game over");
+        gameOver()
       }
     }
   }

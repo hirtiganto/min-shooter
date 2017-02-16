@@ -7,7 +7,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight)
 
   player = new Player()
-  maxEnemyCount = 5
+  maxEnemyCount = 4
   score = 0
 }
 
@@ -60,4 +60,11 @@ function checkCollision(location, w, h, collider, colW, colH) {
       return true
     }
   }
+}
+
+function gameOver() {
+  noLoop()
+  fill (51)
+  textSize(100)
+  text("game over", width / 2, height / 2)
 }
