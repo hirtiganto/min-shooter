@@ -15,7 +15,7 @@ function setup() {
 function draw() {
   redrawBackground()
   noStroke()
-  
+
   fill(0)
   textSize(12)
   text("FPS: " + floor(frameRate()),20,20)
@@ -38,6 +38,7 @@ function draw() {
 
     if (opponents[i].deletable) {
       opponents.splice(i, 1)
+      score += 10
       continue
     }
   }
