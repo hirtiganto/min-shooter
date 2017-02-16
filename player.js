@@ -14,7 +14,7 @@ function Player() {
   this.facingRight = true
   this.bullets = []
   this.timeFired = 0
-  this.delay = 250
+  this.delay = 300
 
 
   this.applyForce = function(force) {
