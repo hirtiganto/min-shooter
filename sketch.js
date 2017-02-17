@@ -16,10 +16,6 @@ function draw() {
   redrawBackground()
   noStroke()
 
-  fill(0)
-  textSize(12)
-  text("FPS: " + floor(frameRate()),20,20)
-
   fill(255)
   textSize(map(32, 0, 738, 0, height))
   text("Score: " + score, width / 2 - map(40, 0, 738, 0, height), map(40, 0, 738, 0, height))
