@@ -1,11 +1,11 @@
 function Player() {
-  this.location = createVector(width / 2, height - 180)
+  this.location = createVector(width / 2, height - map(180, 0, 738, 0, height))
   this.acceleration = createVector(0, 0)
   this.velocity = createVector(0, 0)
-  this.speedScale = 10
+  this.speedScale = map(10, 0, 1440, 0, width)
 
-  this.w = 60
-  this.h = 120
+  this.w = map(60, 0, 1440, 0, width)
+  this.h = map(120, 0, 738, 0, height)
 
   this.jumped = false
   this.jumpHeight = createVector(0, -200)
@@ -62,19 +62,19 @@ function Player() {
 
     this.velocity.add(this.acceleration)
     this.location.add(this.velocity)
-    this.location.x = constrain(this.location.x, 0, width - 60)
+    this.location.x = constrain(this.location.x, 0, width - this.w)
 
     this.acceleration.mult(0)
     this.velocity.mult(0)
 
-    if (this.location.y < height - 180) {
+    if (this.location.y < height - map(180, 0, 738, 0, height)) {
       this.gravity.mult(1.1)
       this.applyForce(this.gravity)
     } else {
-      this.jumpHeight = createVector(0, -45)
+      this.jumpHeight = createVector(0, -map(45, 0, 738, 0, height))
       this.gravity = createVector(0, 1)
       this.jumped = false
-      this.location.y = height - 180
+      this.location.y = height - map(180, 0, 738, 0, height)
     }
 
     for (var i = 0; i < opponents.length; i++) {

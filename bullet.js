@@ -1,11 +1,13 @@
 function Bullet(player) {
-  this.location = createVector(player.x, player.y + 50)
+  this.location = createVector(player.x, player.y + map(50, 0, 738, 0, height))
   this.direction = createVector(1, 0)
-  this.speedScale = 20
+  this.speedScale = map(20, 0, 1440, 0, width)
   this.deletable = false
 
   this.w = 40
   this.h = 5
+  this.w = map(40, 0, 1440, 0, width)
+  this.h = map(5, 0, 738, 0, height)
 
 
   this.col = {

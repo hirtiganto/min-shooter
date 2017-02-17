@@ -1,23 +1,23 @@
 function Opponent() {
-  this.location = createVector(0, height - 180)
+  this.location = createVector(0, height - map(180, 0, 738, 0, height))
   this.col = color(random (150, 200),random(10, 25),random(10, 25))
 
-  this.w = 60
-  this.h = 120
+  this.w = map(60, 0, 1440, 0, width)
+  this.h = map(120, 0, 738, 0, height)
 
   this.hp = 2
   this.deletable = false
 
   // i want the opponent to spawn beyond the screen
   if (Math.round(random(0, 1)) > 0) {
-    this.location.x = -120
+    this.location.x = -this.h
   } else {
-    this.location.x = width + 120
+    this.location.x = width + this.h
   }
 
   this.acceleration = createVector(0, 0)
   this.velocity = createVector(0, 0)
-  this.speedScale = random(2,6)
+  this.speedScale = map(random(2,6), 0, 1440, 0, width)
 
 
   // this is in case i wanted to apply some fancy physics

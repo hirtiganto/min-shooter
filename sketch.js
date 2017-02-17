@@ -4,10 +4,10 @@ var maxEnemyCount
 var score
 
 function setup() {
-  createCanvas(windowWidth,windowHeight)
+  createCanvas(640,360)
 
   player = new Player()
-  maxEnemyCount = 4
+  maxEnemyCount = 5
   score = 0
 }
 
@@ -21,8 +21,8 @@ function draw() {
   text("FPS: " + floor(frameRate()),20,20)
 
   fill(255)
-  textSize(32)
-  text("Score: " + score, width / 2, 40)
+  textSize(map(32, 0, 738, 0, height))
+  text("Score: " + score, width / 2 - map(40, 0, 738, 0, height), map(40, 0, 738, 0, height))
 
   player.update()
   player.updateBullets()
@@ -50,7 +50,7 @@ function redrawBackground() {
 
   noStroke()
   fill(135, 93, 119)
-  rect(0, height - 60, width, 60)
+  rect(0, height - map(60, 0, 738, 0, height), width, map(60, 0, 738, 0, height))
 }
 
 
@@ -65,6 +65,6 @@ function checkCollision(location, w, h, collider, colW, colH) {
 function gameOver() {
   noLoop()
   fill (51)
-  textSize(100)
+  textSize(map(100, 0, 738, 0, height))
   text("game over", width / 2, height / 2)
 }
