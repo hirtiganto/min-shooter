@@ -97,6 +97,11 @@ function Player() {
     }
   }
 
+  this.resetBullets = function () {
+    for (var i = 0; i < this.bullets.length; i++) {
+      this.bullets[i].deletable = true
+    }
+  }
 
   this.render = function() {
     noStroke()

@@ -44,7 +44,7 @@ function draw() {
     }
   }
 
-  if (keyIsPressed && over) {
+  if (mouseIsPressed && over) {
     restartGame()
   }
 }
@@ -71,11 +71,12 @@ function gameOver() {
   over = true
   fill (51)
   textSize(map(50, 0, 738, 0, height))
-  text("game over, press anything to restart", width / 4, height / 2)
+  text("game over, press mouse button to restart", width / 4, height / 2)
 }
 
 function restartGame() {
   score = 0
   opponents = []
+  player.resetBullets()
   over = false
 }
